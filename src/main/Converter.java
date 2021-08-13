@@ -16,10 +16,11 @@ public class Converter {
 		menuSelection = getUserChoice(uChoice);
 		
 		while(menuSelection !=5) {
-			while(menuSelection < 1 || menuSelection >5) {
+			
+			while(menuSelection < 1 || menuSelection > 5) {
 				System.out.println("Inside of first loop");
 				if (menuSelection < 1 || menuSelection > 5) {
-					System.out.println("Please Enter Number between 1 and 5");
+					System.out.println("number is not in range");
 					menuSelection = getUserChoice(uChoice);
 				}
 				else
@@ -27,7 +28,7 @@ public class Converter {
 			}
 			
 			showMenu();	
-			getUserChoice(uChoice);
+			menuSelection = getUserChoice(uChoice);
 			if (menuSelection == 5)
 				break;
 		}
