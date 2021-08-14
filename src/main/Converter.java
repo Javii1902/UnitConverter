@@ -11,26 +11,45 @@ public class Converter {
 		//setting up scanner
 		Scanner uChoice = new Scanner(System.in);
 		
-		
+		//show menu first time and get first choice
 		showMenu();
 		menuSelection = getUserChoice(uChoice);
 		
+		//first while loop. keeps going until choice = 5
 		while(menuSelection !=5) {
 			
-			while(menuSelection < 1 || menuSelection > 5) {
-				System.out.println("Inside of first loop");
-				if (menuSelection < 1 || menuSelection > 5) {
-					System.out.println("number is not in range");
-					menuSelection = getUserChoice(uChoice);
-				}
-				else
-					break;
+			//while loop to make sure choice is in right range 
+			/*
+			 * while(menuSelection < 1 || menuSelection > 5) {
+			 * //System.out.println("inside nested loop6"); if (menuSelection < 1 ||
+			 * menuSelection > 5) { System.out.println("number is not in range");
+			 * menuSelection = getUserChoice(uChoice); } else break; }
+			 */
+			
+			switch (menuSelection) {
+			case 1:
+				System.out.println("You chose temperature conversion");
+				break;
+			case 2:
+				System.out.println("You chose distance conversion");
+				break;
+			case 3:
+				System.out.println("You chose money conversion");
+				break;
+			case 4:
+				System.out.println("You chose Volume conversion");
+				break;
+			case 5:
+				break;
+			default:
+				System.out.println("number is not in range");
 			}
 			
+			System.out.println("Outside of nested loop");
 			showMenu();	
 			menuSelection = getUserChoice(uChoice);
-			if (menuSelection == 5)
-				break;
+//			if (menuSelection == 5)
+//				break;
 		}
 		
 		
@@ -49,6 +68,7 @@ public class Converter {
 		System.out.println("4. Volume");
 		System.out.println("5. quit");
 	}
+
 	
 	//get the users choice
 	public static int getUserChoice(Scanner uChoice) {
@@ -58,7 +78,8 @@ public class Converter {
 		return menuSelection;
 	}
 	//Convert temperature
-	public static double farhenheitToCelcius(double temp){
+	public static double farenheitToCelcius(double temp){
+		temp = ((temp - 32)*(5/9));
 		return temp;
 	}
 	//Convert Distance
